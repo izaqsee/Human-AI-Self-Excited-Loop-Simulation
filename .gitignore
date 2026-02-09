@@ -1,0 +1,17 @@
+# python
+__pycache__/
+*.py[cod]
+
+# venv
+venv/
+.venv/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# local work / scratch
+utility/
+experimental/
+out_phase/
