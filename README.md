@@ -281,3 +281,6 @@ python simulate_disempowerment.py sweep `
 ## ライセンス
 MIT License
 
+=======
+# Human-AI-Self-Excited-Loop-Simulation
+>>>>>>> 7bb85b58377f9c7aa286c1af734b08919e34eb96
