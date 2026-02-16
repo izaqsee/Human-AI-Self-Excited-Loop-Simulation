@@ -289,7 +289,7 @@ Aizawa, S. (2026). Human–AI Self-Excited Loop Simulation (v0.1.1). Zenodo. htt
 
 
 
-# 日本語版
+## Japanese
 ## ヒト–AI相互作用における自己励起ループのシミュレーション
 
 本リポジトリは，ヒトとAIの相互作用が自己励起的に進行し，
