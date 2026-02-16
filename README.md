@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo..18656263.svg)](https://doi.org/10.5281/zenodo.18656263)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18656263.svg)](https://doi.org/10.5281/zenodo.18656263)
 
 
 # Human–AI Self-Excited Loop Simulation
@@ -128,9 +128,9 @@ $R(t+1) = R(t) + k_r · (D(t) + λ_a (1-A(t))) - k_d (1-U(t))$
 
 Short-term satisfaction S(t) is defined as:
 
-$S(t) = σ(w_u U(t) + w_r R(t) + w_risk Risk(t) - w_d D(t))$
+$S(t) = \sigma(w_u U(t) + w_r R(t) + w_risk Risk(t) - w_d D(t))$
 
-where σ denotes a sigmoid function.
+where $\sigma$ denotes a sigmoid function.
 
 Components:
 
@@ -169,21 +169,31 @@ Phase diagrams were computed across parameter space
 for each policy (delegating / empower / feedback),
 evaluating:
 
-- severe_rate_high
-- risk_sat_corr_high
+- severe_rate_high (severe event rate in high-load domain)
+- risk_sat_corr_high (correlation between risk and short-term satisfaction)
 - region satisfying C1–C3 simultaneously (ALL region)
 
 Special attention was paid to regions where
-risk–satisfaction correlation becomes negative.
+the risk–satisfaction correlation becomes negative,
+i.e., where higher short-term satisfaction coexists
+with increased long-term structural risk.
 
 ---
 
 ### Delegating Policy
 
+#### Severe event rate (high-load domain)
+
+![phase_delegating_severe_hl](figures/phase_delegating_severe_hl.png)
+
+#### Risk–Satisfaction Correlation (high-load domain)
+
+![phase_delegating_corr_hl](figures/phase_delegating_corr_hl.png)
+
 - Broad negative-correlation region
 - Wide C1–C3 region
 
-Self-reinforcing loop forms easily:
+A self-reinforcing loop forms easily:
 
 High U → High R → Low A → High S
 
@@ -194,25 +204,66 @@ self-excited disempowerment.
 
 ### Feedback Policy
 
+#### Severe event rate (high-load domain)
+
+![phase_feedback_severe_hl](figures/phase_feedback_severe_hl.png)
+
+#### Risk–Satisfaction Correlation (high-load domain)
+
+![phase_feedback_corr_hl](figures/phase_feedback_corr_hl.png)
+
 - Smaller negative-correlation region than delegating
 - C1–C3 region exists under certain parameters
 
 Even state-dependent support
 does not eliminate structural risk.
+Self-excited dynamics may still appear
+depending on parameter conditions.
 
 ---
 
 ### Empower Policy
 
+#### Severe event rate (high-load domain)
+
+![phase_empower_severe_hl](figures/phase_empower_severe_hl.png)
+
+#### Risk–Satisfaction Correlation (high-load domain)
+
+![phase_empower_corr_hl](figures/phase_empower_corr_hl.png)
+
 - Negative-correlation region extremely small
 - 418 points out of ~75,000 (<1%)
 - Minimum risk_sat_corr ≈ −0.098
 
-The negative region appears only as a narrow boundary band,
-without forming a broad structural phase.
+The negative region appears only as a narrow boundary band
+near parameter edges and does not form a broad structural phase.
 
-This suggests empowerment-oriented policy
+This suggests that empowerment-oriented policy
 does not structurally generate self-excited disempowerment.
+
+---
+
+### Correlation Zero Contour (Structural Transition Line)
+
+![contour_overlay_risk_sat_corr0](figures/contour_overlay_risk_sat_corr0.png)
+
+This figure shows the zero-correlation boundary
+for the delegating policy.
+
+For feedback and empower policies,
+boundary extraction was also attempted.
+However, negative-correlation regions did not expand
+into a continuous structural phase,
+and therefore no clear transition line was formed.
+
+In particular, under empower policy,
+the negative region remains confined
+to a very narrow band near parameter boundaries.
+
+This indicates that the difference in support topology
+does not merely shift parameter thresholds,
+but fundamentally alters the phase structure itself.
 
 ---
 
@@ -230,16 +281,17 @@ does not structurally generate self-excited disempowerment.
 
 Results indicate that:
 
-Delegation-centered support tends to form self-excited dependence structures.
+Delegation-centered support tends to form
+self-excited dependence structures.
 
 Empowerment-oriented support largely avoids such structures.
 
 Therefore,
 
 The topology of support (delegation vs empowerment)
-is more decisive than the amount of support.
+is more decisive than the amount of support
+in determining long-term structural stability.
 
----
 
 ## How to Run
 
@@ -435,8 +487,8 @@ $
 
 システムは
 
-自律性A → 0  
-依存度R → 1
+自律性  $A → 0$  
+依存度 $R → 1$
 
 という完全依存状態に収束する．
 
@@ -452,11 +504,19 @@ $
 * risk_sat_corr_high  リスク指標と短期満足の相関
 * C1–C3 の同時成立領域（ALL領域）
 
-特に，「risk–satisfaction 相関が負になる領域」（短期満足が高いほど長期的リスクも高い，という構造）に注目した．
+特に， **「risk–satisfaction 相関が負になる領域」（短期満足が高いほど長期的リスクも高い，という構造）** に注目した．
 
 ---
 
 ### delegating ポリシー
+
+#### Severe event rate (high-load domain)
+
+![phase_delegating_severe_hl](figures/phase_delegating_severe_hl.png)
+
+#### Risk–Satisfaction Correlation (high-load domain)
+
+![phase_delegating_corr_hl](figures/phase_delegating_corr_hl.png)
 
 * 負の相関領域が広く分布
 * C1–C3 を満たす領域も広く存在
@@ -476,6 +536,15 @@ $
 
 ### feedback ポリシー
 
+#### Severe event rate (high-load domain)
+
+![phase_feedback_severe_hl](figures/phase_feedback_severe_hl.png)
+
+#### Risk–Satisfaction Correlation (high-load domain)
+
+![phase_feedback_corr_hl](figures/phase_feedback_corr_hl.png)
+
+
 * delegating よりは縮小するが，  負の相関領域は依然として存在
 * パラメータによっては  C1–C3 を満たす領域が形成される
 
@@ -492,6 +561,15 @@ $
 
 ### empower ポリシー
 
+#### Severe event rate (high-load domain)
+
+![phase_empower_severe_hl](figures/phase_empower_severe_hl.png)
+
+#### Risk–Satisfaction Correlation (high-load domain)
+
+![phase_empower_corr_hl](figures/phase_empower_corr_hl.png)
+
+
 * 負の相関領域は極めて小さい
 * 約75,000条件中 418点（1%未満）のみ
 * 最小値：risk_sat_corr ≈ −0.098
@@ -505,9 +583,22 @@ $
 
 この結果は，
 
-* 自律支援型のポリシーでは，原理的に自己励起的なディスエンパワメント構造が  生じにくい
+* 自律支援型のポリシーでは，原理的に自己励起的なディスエンパワメント構造が生じにくい
 
 ことを示唆する．
+
+### 相関ゼロ境界（構造転移線）
+#### Correlation Zero Contour Overlay
+
+![contour_overlay_risk_sat_corr0](figures/contour_overlay_risk_sat_corr0.png)
+
+この図は risk–satisfaction 相関が 0 となる境界線を重ねたものである．
+
+feedback および empower ポリシーについても同様の境界抽出を試みたが，負相関領域が位相として広がらず，境界が明確な連続線を形成しなかったため，図示は省略している．
+
+特に empower ポリシーでは，負相関はパラメータ境界付近の極めて狭い帯状領域に限定され，構造的な相としては成立していない．
+
+これは **支援トポロジーの違いが位相構造を根本的に変化させる**ことを示している．
 
 ---
 
