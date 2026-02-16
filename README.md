@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18656263.svg)](https://doi.org/10.5281/zenodo.18656263)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18656900.svg)](https://doi.org/10.5281/zenodo.18656900)
 
 
 # Human–AI Self-Excited Loop Simulation
@@ -337,7 +337,7 @@ MIT License
 
 If you use this model in academic work, please cite:
 
-Aizawa, S. (2026). Human–AI Self-Excited Loop Simulation (v0.1.1). Zenodo. https://doi.org/10.5281/zenodo.18656263
+Aizawa, S. (2026). Human–AI Self-Excited Loop Simulation (v0.1.1). Zenodo. https://doi.org/10.5281/zenodo.18656900
 
 
 
