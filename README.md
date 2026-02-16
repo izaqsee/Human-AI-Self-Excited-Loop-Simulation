@@ -281,6 +281,13 @@ python plot_phase_highlight.py \
 
 MIT License
 
+## Citation
+
+If you use this model in academic work, please cite:
+
+Aizawa, S. (2026). Human–AI Self-Excited Loop Simulation (v0.1.1). Zenodo. https://doi.org/10.5281/zenodo.18656263
+
+
 
 # 日本語版
 ## ヒト–AI相互作用における自己励起ループのシミュレーション
